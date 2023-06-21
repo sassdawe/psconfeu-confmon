@@ -49,5 +49,6 @@ jobs:
           
       - name: Commit report
         run: |
+          git add .
           git commit -am "Automated report"
           git push origin newbranch

@@ -37,6 +37,7 @@ jobs:
           git fetch
           git branch newbranch
           git checkout newbranch
+          git pull
           
       - name: Azure PowerShell actions with CLI
         uses: Azure/powershell@v1

@@ -34,6 +34,7 @@ jobs:
         run: |
           git config --global user.name 'David Sass'
           git config --global user.email 'sassdawe@users.noreply.github.com'
+          git fetch
           git branch newbranch
           git checkout newbranch
           

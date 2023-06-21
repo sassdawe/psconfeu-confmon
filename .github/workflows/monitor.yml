@@ -49,6 +49,7 @@ jobs:
           #azcliversion: # optional, default is agentazcliversion
           
       - name: Commit report
+        continue-on-error: true
         run: |
           git add .
           git commit -am "Automated report"

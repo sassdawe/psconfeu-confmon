@@ -3,6 +3,12 @@ Azure Configuration Monitoring example GitHub Action
 
 ## ⚠️ Warnings ⚠️
 
+### DON'T DO THIS IN PUBLIC REPO
+
+You really don't want to expose your configuration to the whole world.
+
+### Be aware of secrets stored as configuration
+
 When we export the App Configurations of an App Service or a Function app, any secrets stored as configuration would be checked into source contol **BIG NO-NO**
 
 ![CatNoGIF](https://github.com/sassdawe/psconfeu-confmon/assets/10754765/271d6cf3-3413-428a-9a32-13efcd076734=50x)

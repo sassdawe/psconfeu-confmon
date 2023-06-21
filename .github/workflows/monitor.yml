@@ -30,7 +30,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Azure CLI Action
-        uses: Azure/cli@v1.0.7
+        uses: Azure/powershell@v1
         with:
           # Specify the script here
           inlineScript:

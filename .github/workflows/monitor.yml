@@ -32,6 +32,7 @@ jobs:
       - name: Azure CLI Action
         uses: Azure/powershell@v1
         with:
+          azPSVersion: "latest"
           # Specify the script here
           inlineScript:
             az functionapp list | out-file .\functionapp-list.json

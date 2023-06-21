@@ -38,7 +38,7 @@ jobs:
           inlineScript:
             pwd;
             get-childitem;
-            (az functionapp list | convertfrom-json | %{ $_ } ) | convertto-json | out-file .\functionapp-list.json
+            (az functionapp list | convertfrom-json | %{ $_ } ) | convertto-json | out-file .\functionapp-list.json;
             get-childitem;
           # Azure CLI version to be used to execute the script. If not provided, latest version is used
           #azcliversion: # optional, default is agentazcliversion

@@ -46,7 +46,7 @@ jobs:
           azPSVersion: "latest"
           # Specify the script here
           inlineScript: |
-            .\src\report-functionapp.ps1     
+            & '.\src\report-functionapp.ps1';     
           # Azure CLI version to be used to execute the script. If not provided, latest version is used
           #azcliversion: # optional, default is agentazcliversion
           

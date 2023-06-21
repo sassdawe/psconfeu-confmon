@@ -32,10 +32,9 @@ jobs:
         run: |
           git config --global user.name 'David Sass'
           git config --global user.email 'sassdawe@users.noreply.github.com'
-          git fetch
-          git checkout newbranch
-          git pull
-          
+          git checkout -b report
+          git remote add out https://${{secrets.GH_PUSH_PAT}}@github.com/sassdawe/psconfeu-confmon-report 
+
       - name: Report on Function Apps
         uses: Azure/powershell@v1
         with:
@@ -51,4 +50,4 @@ jobs:
         run: |
           git add .
           git commit -am "Automated report"
-          git push origin newbranch
+          git push out report

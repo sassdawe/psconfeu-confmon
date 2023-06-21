@@ -36,9 +36,10 @@ jobs:
           azPSVersion: "latest"
           # Specify the script here
           inlineScript:
-            pwd;
-            get-childitem;
+            git checkout newbranch;
             (az functionapp list | convertfrom-json | %{ $_ } ) | convertto-json | out-file .\functionapp-list.json;
-            get-childitem;
+            git add *;
+            git commit -a -m "changed";
+            git push origin newbranch;
           # Azure CLI version to be used to execute the script. If not provided, latest version is used
           #azcliversion: # optional, default is agentazcliversion

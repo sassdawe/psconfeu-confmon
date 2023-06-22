@@ -33,7 +33,7 @@ jobs:
           git config --global user.name 'David Sass'
           git config --global user.email 'sassdawe@users.noreply.github.com'
           git checkout -b report
-          git remote add out https://${{secrets.GH_PUSH_PAT}}@github.com/sassdawe/psconfeu-confmon-report 
+          git remote add out https://${{secrets.GH_PAT}}@github.com/sassdawe/psconfeu-confmon-report 
 
       - name: Report on Function Apps
         uses: Azure/powershell@v1

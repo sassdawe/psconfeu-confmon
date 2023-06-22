@@ -36,7 +36,6 @@ jobs:
           git config --global user.name 'David Sass'
           git config --global user.email 'sassdawe@users.noreply.github.com'
           git checkout -b report
-          git remote add out https://sassdawe:${{secrets.GH_PAT}}@github.com/sassdawe/psconfeu-confmon-report.git
 
       - name: Report on Function Apps
         uses: Azure/powershell@v1
@@ -48,9 +47,28 @@ jobs:
           # Azure CLI version to be used to execute the script. If not provided, latest version is used
           #azcliversion: # optional, default is agentazcliversion
           
+      - name: Configure git credentials
+        # You may pin to the exact commit or the version.
+        uses: OleksiyRudenko/gha-git-credentials@ac5b66bcf3873df4259c681d957d8c145980171f
+        # uses: OleksiyRudenko/gha-git-credentials@v2.1.1
+        with:
+          # Configure global git user name, email, password (default: false)
+          global: true
+          # <git-user-email@domain.com> (default: github-action@users.noreply.github.com)
+          email: sassdawe@users.noreply.github.com
+          # Git User Name (default: "GitHub Action")
+          name: David Sass
+          # GitHub Actor Username (default: github.actor)
+          actor: sassdawe
+          # GitHub Token
+          token: ${{secrets.GH_PAT}}
+          
       - name: Commit report
         continue-on-error: true
         run: |
+          git remote add out https://github.com/sassdawe/psconfeu-confmon-report.git
           git add .
           git commit -am "Automated report"
           git push out report
+          
+          

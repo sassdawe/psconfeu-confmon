@@ -22,14 +22,19 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      
+      - name: Checkout destination
+        uses: actions/checkout@v3
+        with:
+          repository: sassdawe/psconfeu-confmon-report
+          token: ${{ secrets.GH_PAT }} # `GH_PAT` is a secret that contains your PAT
+          path: report
+      
       - name: Azure Login
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           enable-AzPSSession: true
-      - uses: de-vri-es/setup-git-credentials@v2
-        with:
-          credentials: ${{secrets.GH_PAT2}}
 
       - name: new branch
         run: |
@@ -47,28 +52,13 @@ jobs:
           # Azure CLI version to be used to execute the script. If not provided, latest version is used
           #azcliversion: # optional, default is agentazcliversion
           
-      - name: Configure git credentials
-        # You may pin to the exact commit or the version.
-        uses: OleksiyRudenko/gha-git-credentials@ac5b66bcf3873df4259c681d957d8c145980171f
-        # uses: OleksiyRudenko/gha-git-credentials@v2.1.1
-        with:
-          # Configure global git user name, email, password (default: false)
-          global: true
-          # <git-user-email@domain.com> (default: github-action@users.noreply.github.com)
-          email: sassdawe@users.noreply.github.com
-          # Git User Name (default: "GitHub Action")
-          name: David Sass
-          # GitHub Actor Username (default: github.actor)
-          actor: sassdawe
-          # GitHub Token
-          token: ${{secrets.GH_PAT}}
-          
       - name: Commit report
         continue-on-error: true
+        shell: pwsh
         run: |
-          git remote add out https://sassdawe:${{secrets.GH_PAT}}@github.com/sassdawe/psconfeu-confmon-report.git
+          set-location ./report
           git add .
           git commit -am "Automated report"
-          git push out report
+          git push
           
           

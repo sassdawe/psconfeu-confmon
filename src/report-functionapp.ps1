@@ -15,3 +15,5 @@ $function_identity = $functions | foreach-object {
     az functionapp identity show --ids $_.id | convertfrom-json
 }
 $function_identity | convertto-json | out-file .\report\functionapp-identity.json;
+
+

@@ -53,6 +53,7 @@ jobs:
           inlineScript: |
             & "$(Get-Location)/src/report-functionapp.ps1"
             & "$(Get-Location)/src/report-storageaccount.ps1"
+            & "$(Get-Location)/src/report-loganalytics.ps1"
           # Azure CLI version to be used to execute the script. If not provided, latest version is used
           #azcliversion: # optional, default is agentazcliversion
           

@@ -66,7 +66,7 @@ jobs:
       - name: Commit report
         continue-on-error: true
         run: |
-          git remote add out https://github.com/sassdawe/psconfeu-confmon-report.git
+          git remote add out https://sassdawe:${{secrets.GH_PAT}}@github.com/sassdawe/psconfeu-confmon-report.git
           git add .
           git commit -am "Automated report"
           git push out report

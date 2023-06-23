@@ -13,6 +13,13 @@ When we export the App Configurations of an App Service or a Function app, any s
 
 ![CatNoGIF](https://github.com/sassdawe/psconfeu-confmon/assets/10754765/271d6cf3-3413-428a-9a32-13efcd076734=50x)
 
+## What this is?
+
+Now that we're done with mandatory warnings, let's drive into the details.
+
+This repo was used for a presentation at **PSConfEU 2023** in Prague titled: _First step of IaC Configuration Monitoring_
+
+See the presentation at [PSConfEU2023](https://github.com/psconfeu/2023/tree/main/DavidSass) after the PR is accepted.
 
 ## Resources
 

@@ -5,11 +5,11 @@ name: Monitor configuration
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  schedule:
-    - cron: '*/5 * * * *'
+  #schedule:
+  #  - cron: '*/5 * * * *'
   # push
-  push:
-    branches: [ "main" ]
+  #push:
+  #  branches: [ "main" ]
     
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
